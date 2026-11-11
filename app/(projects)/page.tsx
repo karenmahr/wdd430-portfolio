@@ -1,11 +1,22 @@
 import { getProjects, Project } from '@/app/lib/projects-db';
 
-async function getServerSideProps(): Promise<Project[]> {
-  return await getProjects();
+async function getServerSideProps(query: string, page: number): Promise<Project[]> {
+  return await getProjects(query, page);
 }
 
-export default async function ProjectsPage() {
-  const projects = await getServerSideProps();
+export default async function ProjectsPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+  }>;
+}) {
+  const resolvedParams = await searchParams;
+  const query = resolvedParams?.query || '';
+  const currentPage = Number(resolvedParams?.page) || 1;
+
+  const projects = await getServerSideProps(query, currentPage);
 
   return (
     <section>
