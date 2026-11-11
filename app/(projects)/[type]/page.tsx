@@ -1,4 +1,4 @@
-import { getProjects } from '@/app/lib/projects-db'; // o '@/app/lib/projects-db'
+import { getProjects } from '@/app/lib/projects-db'; 
 
 export default async function FilteredProjectsPage({
   params,
