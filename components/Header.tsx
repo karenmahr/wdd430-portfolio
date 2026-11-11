@@ -10,6 +10,8 @@ export default function Header() { //declara una funcion de React llamada Header
         <ul className="flex gap-6">{/*Tailwind funciona al aplicar clases*/}
           <li><Link href="/">Home</Link></li>
           <li><Link href="/about">About</Link></li>
+          <li><Link href="/projects">Projects</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
         </ul>
       </nav>
     </header>
